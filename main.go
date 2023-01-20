@@ -1,0 +1,30 @@
+package main
+
+import (
+	"net/http"
+
+	"github.com/gorilla/mux"
+	"github.com/tune-bot/database"
+)
+
+func main() {
+	err := database.Connect("TODO my connection string from file here") // TODO my connection string from file here
+	if err != nil {
+		return
+	}
+	defer database.Disconnect()
+
+	router := mux.NewRouter()
+
+	router.HandleFunc("/user/register/", Register).Methods("POST")
+	router.HandleFunc("/user/login/", Login).Methods("POST")
+	router.HandleFunc("/device/user/link/", Link).Methods("LINK")
+	router.HandleFunc("/device/user/get/", Get).Methods("GET")
+	router.HandleFunc("/playlist/create/", Create).Methods("POST")
+	router.HandleFunc("/playlist/update/", Update).Methods("PATCH")
+	router.HandleFunc("/playlist/delete/", Delete).Methods("DELETE")
+	router.HandleFunc("/playlist/song/add/", Add).Methods("PUT")
+	router.HandleFunc("/playlist/song/remove/", Remove).Methods("DELETE")
+
+	http.ListenAndServe(":8080", router)
+}
