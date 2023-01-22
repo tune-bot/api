@@ -1,9 +1,11 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"encoding/json"
 	"net/http"
+	"os"
 
 	"github.com/tune-bot/database"
 	"github.com/valyala/fastjson"
@@ -52,4 +54,45 @@ func Remove(w http.ResponseWriter, req *http.Request) {
 	}
 
 	successResponse([]byte("{}"), w)
+}
+
+func Download() (w http.ResponseWriter, req *http.Request) {
+	song := database.Song{}
+	err := json.NewDecoder(req.Body).Decode(&song)
+
+	if err != nil {
+		errorResponse(err, w)
+		return
+	}
+
+	file, err := os.Open(song.FilePath())
+	if err != nil {
+		errorResponse(err, w)
+		return
+	}
+	defer file.Close()
+
+	stats, err := file.Stat()
+	if err != nil {
+		errorResponse(err, w)
+		return
+	}
+
+	var size int64 = stats.Size()
+	bytes := make([]byte, size)
+
+	bufr := bufio.NewReader(file)
+	_, err = bufr.Read(bytes)
+
+	if err != nil {
+		errorResponse(err, w)
+		return
+	}
+
+	w.Header().Set("Content-Type", "audio/mpeg")
+	w.Header().Set("Content-Disposition", "filename="+file.Name())
+	w.WriteHeader(http.StatusOK)
+	w.Write(bytes)
+
+	return
 }
