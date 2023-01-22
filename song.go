@@ -56,7 +56,7 @@ func Remove(w http.ResponseWriter, req *http.Request) {
 	successResponse([]byte("{}"), w)
 }
 
-func Download() (w http.ResponseWriter, req *http.Request) {
+func Download(w http.ResponseWriter, req *http.Request) {
 	song := database.Song{}
 	err := json.NewDecoder(req.Body).Decode(&song)
 

@@ -25,6 +25,7 @@ func main() {
 	router.HandleFunc("/playlist/delete/", Delete).Methods("DELETE")
 	router.HandleFunc("/playlist/song/add/", Add).Methods("PUT")
 	router.HandleFunc("/playlist/song/remove/", Remove).Methods("DELETE")
+	router.HandleFunc("/song/download/", Download).Methods("GET")
 
 	http.ListenAndServe(":8080", router)
 }
