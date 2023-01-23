@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	err := database.Connect("TODO my connection string from file here") // TODO my connection string from file here
+	err := database.Connect()
 	if err != nil {
 		return
 	}

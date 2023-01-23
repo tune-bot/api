@@ -8,5 +8,7 @@ github.com/tune-bot/database v1.0.1 h1:Pl2dKTrppU8cEPSNIF+wh4+ExFh84ym+zciXIPWJ8
 github.com/tune-bot/database v1.0.1/go.mod h1:rcfrvSP6o/K/FJKOJFF1WxPMHTcDWc0T8pdCWOC7U+c=
 github.com/tune-bot/database v1.0.2 h1:SYMNEnHlWXc/J2I34/ipRm6oLssqNmu4B1bzC+xUR6E=
 github.com/tune-bot/database v1.0.2/go.mod h1:rcfrvSP6o/K/FJKOJFF1WxPMHTcDWc0T8pdCWOC7U+c=
+github.com/tune-bot/database v1.0.3 h1:f05kA1eij+weaE5loxeBgw8NcIKqWhxqqraApL/73sE=
+github.com/tune-bot/database v1.0.3/go.mod h1:rcfrvSP6o/K/FJKOJFF1WxPMHTcDWc0T8pdCWOC7U+c=
 github.com/valyala/fastjson v1.6.3 h1:tAKFnnwmeMGPbwJ7IwxcTPCNr3uIzoIj3/Fh90ra4xc=
 github.com/valyala/fastjson v1.6.3/go.mod h1:CLCAqky6SMuOcxStkYQvblddUtoRxhYMGLrsQns1aXY=
