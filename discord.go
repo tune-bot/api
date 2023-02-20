@@ -7,21 +7,21 @@ import (
 	"github.com/tune-bot/database"
 )
 
-func LinkDevice(w http.ResponseWriter, req *http.Request) {
-	device := database.Device{}
-	err := json.NewDecoder(req.Body).Decode(&device)
+func LinkDiscord(w http.ResponseWriter, req *http.Request) {
+	discord := database.Discord{}
+	err := json.NewDecoder(req.Body).Decode(&discord)
 
 	if err != nil {
 		errorResponse(err, w)
 		return
 	}
 
-	err = device.Link()
+	err = discord.Link()
 
 	if err != nil {
 		errorResponse(err, w)
 	} else {
-		data, err := json.Marshal(device)
+		data, err := json.Marshal(discord)
 
 		if err != nil {
 			errorResponse(err, w)
@@ -31,16 +31,16 @@ func LinkDevice(w http.ResponseWriter, req *http.Request) {
 	}
 }
 
-func GetDevice(w http.ResponseWriter, req *http.Request) {
-	device := database.Device{}
-	err := json.NewDecoder(req.Body).Decode(&device)
+func GetDiscord(w http.ResponseWriter, req *http.Request) {
+	discord := database.Discord{}
+	err := json.NewDecoder(req.Body).Decode(&discord)
 
 	if err != nil {
 		errorResponse(err, w)
 		return
 	}
 
-	user, err := device.GetUser()
+	user, err := discord.GetUser()
 
 	if err != nil {
 		errorResponse(err, w)

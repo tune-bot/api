@@ -18,8 +18,10 @@ func main() {
 
 	router.HandleFunc("/user/register/", Register).Methods("POST")
 	router.HandleFunc("/user/login/", Login).Methods("POST")
-	router.HandleFunc("/device/user/link/", Link).Methods("LINK")
-	router.HandleFunc("/device/user/get/", Get).Methods("GET")
+	router.HandleFunc("/user/device/link", LinkDevice).Methods("LINK")
+	router.HandleFunc("/user/device/", GetDevice).Methods("GET")
+	router.HandleFunc("/user/discord/link/", LinkDiscord).Methods("LINK")
+	router.HandleFunc("/user/discord/", GetDiscord).Methods("GET")
 	router.HandleFunc("/playlist/create/", Create).Methods("POST")
 	router.HandleFunc("/playlist/update/", Update).Methods("PATCH")
 	router.HandleFunc("/playlist/delete/", Delete).Methods("DELETE")
