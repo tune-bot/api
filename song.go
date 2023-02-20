@@ -22,7 +22,13 @@ func Add(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	song := database.Song{Url: string(raw.GetStringBytes("url"))}
+	song := database.Song{
+		Url:    string(raw.GetStringBytes("url")),
+		Title:  string(raw.GetStringBytes("title")),
+		Artist: string(raw.GetStringBytes("artist")),
+		Album:  string(raw.GetStringBytes("album")),
+		Year:   uint16(raw.GetInt("year")),
+	}
 
 	err = song.AddToPlaylist(string(raw.GetStringBytes("playlistId")))
 	if err != nil {
