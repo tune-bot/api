@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/gorilla/mux v1.8.0
-	github.com/tune-bot/database v1.0.5
+	github.com/tune-bot/database v1.0.7
 	github.com/valyala/fastjson v1.6.3
 )
 
