@@ -29,5 +29,7 @@ func main() {
 	router.HandleFunc("/playlist/song/remove/", Remove).Methods("DELETE")
 	router.HandleFunc("/song/download/", Download).Methods("GET")
 
-	http.ListenAndServe(":8080", router)
+	http.ListenAndServe(":80", router)
+
+	printLnColor("tune-bot api listening on port 80", rotateColor())
 }
