@@ -18,11 +18,32 @@ var cyan color = 36
 var white color = 37
 var reset color = 0
 
-var colourInRotation color = black
+var successColourInRotation color = cyan
 
-func rotateColor() color {
-	colourInRotation = ((colourInRotation + 1) % white) + red
-	return colourInRotation
+func rotateSuccessColor() color {
+	switch successColourInRotation {
+	case green:
+		successColourInRotation = blue
+	case blue:
+		successColourInRotation = cyan
+	case cyan:
+		successColourInRotation = green
+	}
+	return successColourInRotation
+}
+
+var errorColourInRotation color = magenta
+
+func rotateErrorColor() color {
+	switch errorColourInRotation {
+	case red:
+		errorColourInRotation = yellow
+	case yellow:
+		errorColourInRotation = magenta
+	case magenta:
+		errorColourInRotation = red
+	}
+	return errorColourInRotation
 }
 
 func printLnColor(msg string, colour color) {
@@ -32,7 +53,7 @@ func printLnColor(msg string, colour color) {
 func successResponse(data []byte, w http.ResponseWriter) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	printLnColor("200 - OK", rotateColor())
+	printLnColor("200 - OK", rotateSuccessColor())
 	w.Write(data)
 }
 
@@ -40,7 +61,7 @@ func errorResponse(err error, w http.ResponseWriter) {
 	if err != nil {
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusBadRequest) // TODO use more descriptive http codes
-		printLnColor("400 - Bad Request: "+err.Error(), rotateColor())
+		printLnColor("400 - Bad Request: "+err.Error(), rotateErrorColor())
 		w.Write([]byte("{\"error\":\"" + strings.Replace(err.Error(), "\"", "\\\"", -1) + "\"}"))
 	}
 }

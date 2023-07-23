@@ -32,5 +32,5 @@ func main() {
 
 	http.ListenAndServe(":"+port, router)
 
-	printLnColor("tune-bot api listening on port "+port, rotateColor())
+	printLnColor("tune-bot api listening on port "+port, rotateSuccessColor())
 }
