@@ -26,7 +26,7 @@ func rotateColor() color {
 }
 
 func printLnColor(msg string, colour color) {
-	fmt.Printf("\\0%d%s\\u00\n", colour, msg)
+	fmt.Printf("\033[%dm%s\\u00\n", colour, msg)
 }
 
 func successResponse(data []byte, w http.ResponseWriter) {
