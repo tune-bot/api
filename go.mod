@@ -1,6 +1,6 @@
 module github.com/tune-bot/api
 
-go 1.20
+go 1.18
 
 require (
 	github.com/gorilla/mux v1.8.0
