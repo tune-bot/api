@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+	port := "80"
 	err := database.Connect()
 	if err != nil {
 		return
@@ -29,7 +30,7 @@ func main() {
 	router.HandleFunc("/playlist/song/remove/", Remove).Methods("DELETE")
 	router.HandleFunc("/song/download/", Download).Methods("GET")
 
-	http.ListenAndServe(":80", router)
+	http.ListenAndServe(":"+port, router)
 
-	printLnColor("tune-bot api listening on port 80", rotateColor())
+	printLnColor("tune-bot api listening on port "+port, rotateColor())
 }
