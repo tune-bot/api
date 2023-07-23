@@ -30,7 +30,7 @@ func main() {
 	router.HandleFunc("/playlist/song/remove/", Remove).Methods("DELETE")
 	router.HandleFunc("/song/download/", Download).Methods("GET")
 
-	http.ListenAndServe(":"+port, router)
-
 	printLnColor("tune-bot api listening on port "+port, rotateSuccessColor())
+
+	http.ListenAndServe(":"+port, router)
 }
