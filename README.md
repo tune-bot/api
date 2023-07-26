@@ -1,2 +1,9 @@
 # tune-bot api
-The API that handles manages users and their playlists for tune-bot
+The REST API that handles managing users and their playlists for tune-bot. Requires [database](https://github.com/tune-bot/database) credentials and a connection to the Tunebot database.
+
+To run locally:
+```
+git clone https://github.com/tune-bot/api
+cd api
+go run .
+```
