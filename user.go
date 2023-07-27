@@ -4,11 +4,11 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/tune-bot/database"
+	"github.com/tune-bot/core"
 )
 
 func Register(w http.ResponseWriter, req *http.Request) {
-	user := database.User{}
+	user := core.User{}
 	err := json.NewDecoder(req.Body).Decode(&user)
 
 	if err != nil {
@@ -33,7 +33,7 @@ func Register(w http.ResponseWriter, req *http.Request) {
 }
 
 func Login(w http.ResponseWriter, req *http.Request) {
-	user := database.User{}
+	user := core.User{}
 	err := json.NewDecoder(req.Body).Decode(&user)
 
 	if err != nil {

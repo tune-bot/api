@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/tune-bot/database"
+	"github.com/tune-bot/core"
 	"github.com/valyala/fastjson"
 )
 
@@ -20,7 +20,7 @@ func Create(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	playlist := database.Playlist{Name: string(raw.GetStringBytes("name")), Enabled: true, Songs: []database.Song{}}
+	playlist := core.Playlist{Name: string(raw.GetStringBytes("name")), Enabled: true, Songs: []core.Song{}}
 
 	err = playlist.Create(string(raw.GetStringBytes("userId")))
 	if err != nil {
@@ -32,7 +32,7 @@ func Create(w http.ResponseWriter, req *http.Request) {
 }
 
 func Update(w http.ResponseWriter, req *http.Request) {
-	playlist := database.Playlist{}
+	playlist := core.Playlist{}
 	err := json.NewDecoder(req.Body).Decode(&playlist)
 
 	if err != nil {
@@ -52,7 +52,7 @@ func Update(w http.ResponseWriter, req *http.Request) {
 }
 
 func Delete(w http.ResponseWriter, req *http.Request) {
-	playlist := database.Playlist{}
+	playlist := core.Playlist{}
 	err := json.NewDecoder(req.Body).Decode(&playlist)
 
 	if err != nil {

@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/tune-bot/database"
+	"github.com/tune-bot/core"
 	"github.com/valyala/fastjson"
 )
 
@@ -22,7 +22,7 @@ func Add(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	song := database.Song{
+	song := core.Song{
 		Url:    string(raw.GetStringBytes("url")),
 		Title:  string(raw.GetStringBytes("title")),
 		Artist: string(raw.GetStringBytes("artist")),
@@ -51,7 +51,7 @@ func Remove(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	song := database.Song{Id: string(raw.GetStringBytes("songId"))}
+	song := core.Song{Id: string(raw.GetStringBytes("songId"))}
 
 	err = song.RemoveFromPlaylist(string(raw.GetStringBytes("playlistId")))
 	if err != nil {
@@ -63,7 +63,7 @@ func Remove(w http.ResponseWriter, req *http.Request) {
 }
 
 func Download(w http.ResponseWriter, req *http.Request) {
-	song := database.Song{}
+	song := core.Song{}
 	err := json.NewDecoder(req.Body).Decode(&song)
 
 	if err != nil {

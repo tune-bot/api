@@ -21,12 +21,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{host}}:8080/user/register/",
+					"raw": "http://{{tune-bot-api-host}}/user/register/",
 					"protocol": "http",
 					"host": [
-						"{{host}}"
-					],
-					"port": "8080",
+						"{{tune-bot-api-host}}"
+					],				
 					"path": [
 						"user",
 						"register",
@@ -51,12 +50,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{host}}:8080/user/login/",
+					"raw": "http://{{tune-bot-api-host}}/user/login/",
 					"protocol": "http",
 					"host": [
-						"{{host}}"
+						"{{tune-bot-api-host}}"
 					],
-					"port": "8080",
 					"path": [
 						"user",
 						"login",
@@ -84,12 +82,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{host}}:8080/user/device/",
+					"raw": "http://{{tune-bot-api-host}}/user/device/",
 					"protocol": "http",
 					"host": [
-						"{{host}}"
+						"{{tune-bot-api-host}}"
 					],
-					"port": "8080",
 					"path": [
 						"user",
 						"device",
@@ -114,12 +111,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{host}}:8080/user/device/link/",
+					"raw": "http://{{tune-bot-api-host}}/user/device/link/",
 					"protocol": "http",
 					"host": [
-						"{{host}}"
+						"{{tune-bot-api-host}}"
 					],
-					"port": "8080",
 					"path": [
 						"user",
 						"device",
@@ -148,12 +144,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{host}}:8080/user/discord/",
+					"raw": "http://{{tune-bot-api-host}}/user/discord/",
 					"protocol": "http",
 					"host": [
-						"{{host}}"
+						"{{tune-bot-api-host}}"
 					],
-					"port": "8080",
 					"path": [
 						"user",
 						"discord",
@@ -178,12 +173,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{host}}:8080/user/discord/link/",
+					"raw": "http://{{tune-bot-api-host}}/user/discord/link/",
 					"protocol": "http",
 					"host": [
-						"{{host}}"
+						"{{tune-bot-api-host}}"
 					],
-					"port": "8080",
 					"path": [
 						"user",
 						"discord",
@@ -209,12 +203,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{host}}:8080/playlist/create/",
+					"raw": "http://{{tune-bot-api-host}}/playlist/create/",
 					"protocol": "http",
 					"host": [
-						"{{host}}"
+						"{{tune-bot-api-host}}"
 					],
-					"port": "8080",
 					"path": [
 						"playlist",
 						"create",
@@ -239,12 +232,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{host}}:8080/playlist/update/",
+					"raw": "http://{{tune-bot-api-host}}/playlist/update/",
 					"protocol": "http",
 					"host": [
-						"{{host}}"
+						"{{tune-bot-api-host}}"
 					],
-					"port": "8080",
 					"path": [
 						"playlist",
 						"update",
@@ -269,12 +261,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{host}}:8080/playlist/delete/",
+					"raw": "http://{{tune-bot-api-host}}/playlist/delete/",
 					"protocol": "http",
 					"host": [
-						"{{host}}"
+						"{{tune-bot-api-host}}"
 					],
-					"port": "8080",
 					"path": [
 						"playlist",
 						"delete",
@@ -299,12 +290,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{host}}:8080/playlist/song/add/",
+					"raw": "http://{{tune-bot-api-host}}/playlist/song/add/",
 					"protocol": "http",
 					"host": [
-						"{{host}}"
+						"{{tune-bot-api-host}}"
 					],
-					"port": "8080",
 					"path": [
 						"playlist",
 						"song",
@@ -330,12 +320,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{host}}:8080/playlist/song/remove/",
+					"raw": "http://{{tune-bot-api-host}}/playlist/song/remove/",
 					"protocol": "http",
 					"host": [
-						"{{host}}"
+						"{{tune-bot-api-host}}"
 					],
-					"port": "8080",
 					"path": [
 						"playlist",
 						"song",
@@ -364,12 +353,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{host}}:8080/song/download/",
+					"raw": "http://{{tune-bot-api-host}}/song/download/",
 					"protocol": "http",
 					"host": [
-						"{{host}}"
+						"{{tune-bot-api-host}}"
 					],
-					"port": "8080",
 					"path": [
 						"song",
 						"download",

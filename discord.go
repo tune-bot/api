@@ -4,11 +4,11 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/tune-bot/database"
+	"github.com/tune-bot/core"
 )
 
 func LinkDiscord(w http.ResponseWriter, req *http.Request) {
-	discord := database.Discord{}
+	discord := core.Discord{}
 	err := json.NewDecoder(req.Body).Decode(&discord)
 
 	if err != nil {
@@ -32,7 +32,7 @@ func LinkDiscord(w http.ResponseWriter, req *http.Request) {
 }
 
 func GetDiscord(w http.ResponseWriter, req *http.Request) {
-	discord := database.Discord{}
+	discord := core.Discord{}
 	err := json.NewDecoder(req.Body).Decode(&discord)
 
 	if err != nil {

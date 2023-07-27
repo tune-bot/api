@@ -4,11 +4,11 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/tune-bot/database"
+	"github.com/tune-bot/core"
 )
 
 func LinkDevice(w http.ResponseWriter, req *http.Request) {
-	device := database.Device{}
+	device := core.Device{}
 	err := json.NewDecoder(req.Body).Decode(&device)
 
 	if err != nil {
@@ -32,7 +32,7 @@ func LinkDevice(w http.ResponseWriter, req *http.Request) {
 }
 
 func GetDevice(w http.ResponseWriter, req *http.Request) {
-	device := database.Device{}
+	device := core.Device{}
 	err := json.NewDecoder(req.Body).Decode(&device)
 
 	if err != nil {

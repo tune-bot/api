@@ -4,16 +4,16 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/tune-bot/database"
+	"github.com/tune-bot/core"
 )
 
 func main() {
 	port := "80"
-	err := database.Connect()
+	err := core.Connect()
 	if err != nil {
 		return
 	}
-	defer database.Disconnect()
+	defer core.Disconnect()
 
 	router := mux.NewRouter()
 
