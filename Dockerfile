@@ -19,7 +19,6 @@ RUN api/infrastructure/install.sh
 RUN rm -rf core && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN bin/database
-RUN bin/api
 EXPOSE 80
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["bin/api"]
