@@ -7,3 +7,9 @@ git clone https://github.com/tune-bot/api
 cd api
 go run .
 ```
+
+## Docker
+```
+docker build -t tune-bot-api .
+docker run -p 80:80 -td tune-bot-api
+```
