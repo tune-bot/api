@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"os"
 
@@ -107,10 +106,14 @@ func Download(w http.ResponseWriter, req *http.Request) {
 func Search(w http.ResponseWriter, req *http.Request) {
 	query := "Drok Drok Drok"
 
-	results := core.Search(query)
+	results := core.Search(query) // TODO: numResults
 
-	for _, result := range results {
-		fmt.Println(result.Title)
+	data, err := json.Marshal(results)
+
+	if err != nil {
+		errorResponse(err, w)
+		return
 	}
-	successResponse([]byte("{}"), w)
+
+	successResponse(data, w)
 }
