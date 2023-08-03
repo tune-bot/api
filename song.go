@@ -112,4 +112,5 @@ func Search(w http.ResponseWriter, req *http.Request) {
 	for _, result := range results {
 		fmt.Println(result.Title)
 	}
+	successResponse([]byte("{}"), w)
 }
