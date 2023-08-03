@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"os"
 
@@ -23,7 +24,7 @@ func Add(w http.ResponseWriter, req *http.Request) {
 	}
 
 	song := core.Song{
-		Url:    string(raw.GetStringBytes("url")),
+		Code:   string(raw.GetStringBytes("code")),
 		Title:  string(raw.GetStringBytes("title")),
 		Artist: string(raw.GetStringBytes("artist")),
 		Album:  string(raw.GetStringBytes("album")),
@@ -101,4 +102,14 @@ func Download(w http.ResponseWriter, req *http.Request) {
 	w.Write(bytes)
 
 	return
+}
+
+func Search(w http.ResponseWriter, req *http.Request) {
+	query := "Drok Drok Drok"
+
+	results := core.Search(query)
+
+	for _, result := range results {
+		fmt.Println(result.Title)
+	}
 }
