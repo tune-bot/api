@@ -104,7 +104,17 @@ func Download(w http.ResponseWriter, req *http.Request) {
 }
 
 func Search(w http.ResponseWriter, req *http.Request) {
-	query := "Drok Drok Drok"
+	var parser fastjson.Parser
+	buf := new(bytes.Buffer)
+	_, err := buf.ReadFrom(req.Body)
+	raw, err := parser.Parse(buf.String())
+
+	if err != nil {
+		errorResponse(err, w)
+		return
+	}
+
+	query := string(raw.GetStringBytes("query"))
 
 	results := core.Search(query) // TODO: numResults
 
