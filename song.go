@@ -23,7 +23,7 @@ func Add(w http.ResponseWriter, req *http.Request) {
 	}
 
 	song := core.Song{
-		Url:    string(raw.GetStringBytes("url")),
+		Code:   string(raw.GetStringBytes("code")),
 		Title:  string(raw.GetStringBytes("title")),
 		Artist: string(raw.GetStringBytes("artist")),
 		Album:  string(raw.GetStringBytes("album")),
@@ -101,4 +101,30 @@ func Download(w http.ResponseWriter, req *http.Request) {
 	w.Write(bytes)
 
 	return
+}
+
+func Search(w http.ResponseWriter, req *http.Request) {
+	var parser fastjson.Parser
+	buf := new(bytes.Buffer)
+	_, err := buf.ReadFrom(req.Body)
+	raw, err := parser.Parse(buf.String())
+
+	if err != nil {
+		errorResponse(err, w)
+		return
+	}
+
+	query := string(raw.GetStringBytes("query"))
+	numResults := raw.GetInt("numResults")
+
+	results := core.Search(query, numResults)
+
+	data, err := json.Marshal(results)
+
+	if err != nil {
+		errorResponse(err, w)
+		return
+	}
+
+	successResponse(data, w)
 }
