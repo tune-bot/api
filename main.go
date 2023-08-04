@@ -33,5 +33,9 @@ func main() {
 
 	printLnColor("tune-bot api listening on port "+port, rotateSuccessColor())
 
-	http.ListenAndServe(":"+port, router)
+	err = http.ListenAndServe(":"+port, router)
+
+	if err != nil {
+		printLnColor("tune-bot api failed to start: "+err.Error(), rotateErrorColor())
+	}
 }
