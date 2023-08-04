@@ -115,8 +115,9 @@ func Search(w http.ResponseWriter, req *http.Request) {
 	}
 
 	query := string(raw.GetStringBytes("query"))
+	numResults := raw.GetInt("numResults")
 
-	results := core.Search(query) // TODO: numResults
+	results := core.Search(query, numResults)
 
 	data, err := json.Marshal(results)
 
