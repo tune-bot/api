@@ -11,6 +11,7 @@ func main() {
 	port := "80"
 	err := core.Connect()
 	if err != nil {
+		core.PrintError("Failed to connect to database: " + err.Error())
 		return
 	}
 	defer core.Disconnect()
@@ -31,11 +32,12 @@ func main() {
 	router.HandleFunc("/song/download/", Download).Methods("GET")
 	router.HandleFunc("/song/search/", Search).Methods("GET")
 
-	printLnColor("tune-bot api listening on port "+port, rotateSuccessColor())
+	core.PrintSuccess("tune-bot api listening on port " + port)
 
 	err = http.ListenAndServe(":"+port, router)
 
 	if err != nil {
-		printLnColor("tune-bot api failed to start: "+err.Error(), rotateErrorColor())
+		core.PrintError("tune-bot api failed to start: " + err.Error())
+		return
 	}
 }
