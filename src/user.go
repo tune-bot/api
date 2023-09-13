@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/tune-bot/core"
+	core "github.com/tune-bot/core/src"
 )
 
 func Register(w http.ResponseWriter, req *http.Request) {
