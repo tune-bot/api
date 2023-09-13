@@ -11,5 +11,5 @@ mkdir -p bin
 echo "#!/bin/bash" > bin/api
 echo "source vars/database.env" >> bin/api
 echo "bin/download -U" >> bin/api
-echo "cd api && go run ." >> bin/api
+echo "cd api && go run src/*" >> bin/api
 chmod a+rx bin/api
