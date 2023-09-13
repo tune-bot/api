@@ -26,5 +26,5 @@ jobs:
        go vet ./src
 
     - name: Validate Build
-      run: go build ./src 
+      run: go build -o api ./src 
   
