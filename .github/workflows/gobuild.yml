@@ -23,8 +23,8 @@ jobs:
 
     - name: Lint & Vet
       run: |
-       go vet src
+       go vet ./src
 
     - name: Validate Build
-      run: go build src 
+      run: go build ./src 
   
