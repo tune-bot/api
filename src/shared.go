@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/tune-bot/core"
+	core "github.com/tune-bot/core/src"
 )
 
 func successResponse(data []byte, w http.ResponseWriter) {

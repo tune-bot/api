@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/tune-bot/core"
+	core "github.com/tune-bot/core/src"
 	"github.com/valyala/fastjson"
 )
 

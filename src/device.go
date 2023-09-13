@@ -4,24 +4,24 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/tune-bot/core"
+	core "github.com/tune-bot/core/src"
 )
 
-func LinkDiscord(w http.ResponseWriter, req *http.Request) {
-	discord := core.Discord{}
-	err := json.NewDecoder(req.Body).Decode(&discord)
+func LinkDevice(w http.ResponseWriter, req *http.Request) {
+	device := core.Device{}
+	err := json.NewDecoder(req.Body).Decode(&device)
 
 	if err != nil {
 		errorResponse(err, w)
 		return
 	}
 
-	err = discord.Link()
+	err = device.Link()
 
 	if err != nil {
 		errorResponse(err, w)
 	} else {
-		data, err := json.Marshal(discord)
+		data, err := json.Marshal(device)
 
 		if err != nil {
 			errorResponse(err, w)
@@ -31,16 +31,16 @@ func LinkDiscord(w http.ResponseWriter, req *http.Request) {
 	}
 }
 
-func GetDiscord(w http.ResponseWriter, req *http.Request) {
-	discord := core.Discord{}
-	err := json.NewDecoder(req.Body).Decode(&discord)
+func GetDevice(w http.ResponseWriter, req *http.Request) {
+	device := core.Device{}
+	err := json.NewDecoder(req.Body).Decode(&device)
 
 	if err != nil {
 		errorResponse(err, w)
 		return
 	}
 
-	user, err := discord.GetUser()
+	user, err := device.GetUser()
 
 	if err != nil {
 		errorResponse(err, w)

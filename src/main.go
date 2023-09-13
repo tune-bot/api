@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/tune-bot/core"
+	core "github.com/tune-bot/core/src"
 )
 
 func main() {
